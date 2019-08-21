@@ -19,9 +19,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   posts.forEach(item => {
     actions.createPage({
       path: item.frontmatter.slug,
-      component: `${__dirname}/src/templates/notes.js`,
+      component: require.resolve('./src/templates/notes.js'),
       context: {
-        slug: `/${item.frontmatter.slug}/`
+        slug: item.frontmatter.slug
       }
     })
   })

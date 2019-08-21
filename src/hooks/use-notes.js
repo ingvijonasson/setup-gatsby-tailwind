@@ -15,8 +15,6 @@ const useNotes = () => {
     }
   `)
 
-  console.log(data)
-
   return data.allMdx.nodes.map(item => ({
     title: item.frontmatter.title,
     slug: item.frontmatter.slug,

@@ -1,11 +1,25 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-const NotesTemplate = () => (
+export const query = graphql`
+  query($slug: String!) {
+    mdx(frontmatter: { slug: { eq: $slug }}) {
+      body
+      frontmatter {
+        title
+        author
+      }
+    }
+  }
+`;
+
+const NotesTemplate = ({ data: { mdx: post } }) => (
   <Layout>
-    <h1>hello there</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ipsum inventore impedit. Sapiente tempore quo omnis adipisci dolorum quos, quidem ducimus odit tenetur, perferendis quibusdam a? Quaerat obcaecati sit velit.</p>
-  </Layout>
+    <h1>{post.frontmatter.title}</h1>
+    <MDXRenderer>{post.body}</MDXRenderer>
+  </Layout >
 )
 
 export default NotesTemplate
