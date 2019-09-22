@@ -13,13 +13,15 @@ export default () => {
     <Layout>
       <SEO title="Notes" />
       <section>
-        <h1>Notes</h1>
+        <h1 class="text-xl font-bold">Notes</h1>
+
         {notes.map(item => (
-          <article key={item.slug}>
+          <article class="mt-12" key={item.slug}>
             {/* <pre>{JSON.stringify(item, null, 2)}</pre> */}
+
             <h2>{item.title}</h2>
-            <p>{item.excerpt}</p>
-            <Link to={item.slug}>Visit</Link>
+            <p class="mt-1">{item.excerpt}</p>
+            <Link class="block mt-2" to={item.slug}>Visit</Link>
           </article>
         ))}
       </section>

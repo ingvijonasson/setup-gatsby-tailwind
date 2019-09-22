@@ -7,6 +7,7 @@ module.exports = {
     author: `@_ingvi`,
   },
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
