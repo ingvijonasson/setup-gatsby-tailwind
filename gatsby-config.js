@@ -7,6 +7,7 @@ module.exports = {
     author: `@_ingvi`,
   },
   plugins: [
+    'gatsby-plugin-postcss',
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -19,6 +20,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `notes`,
+        path: `${__dirname}/src/notes`
       },
     },
     `gatsby-transformer-sharp`,
